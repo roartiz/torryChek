@@ -1,1 +1,1 @@
-Automated check-in process for popular sites with an inactivity threshold.
+Automated check-in process for sites that have an inactivity threshold.
