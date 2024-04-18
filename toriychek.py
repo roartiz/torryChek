@@ -3,7 +3,7 @@
 #Updated: 04.13.24
 
 
-# Define variables and import module
+# Define variables and import modules
 brave = 'C:\Program Files\BraveSoftware\Brave-Browser\Application\\brave.exe'
 siteList = ["torrentleech.org", "iptorrents.com", "filelist.io", "cinemaZ.to", "avistaZ.to", "exoticaZ.to", "animetorrents.me", "myanonamouse.net", "audionews.org"]
 index = 0
@@ -27,5 +27,3 @@ for index in siteList:
 if counter >= 9:
     time.sleep(2)
     keyboard.press_and_release('alt+f4')
-    
-
