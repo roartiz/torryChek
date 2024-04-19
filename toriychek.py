@@ -1,13 +1,25 @@
-#Program: toriyChek v1.1
-#Author: Richard Ortiz
-#Updated: 04.17.24
-
+# Program: toriyChek v1.2
+# Author: Richard Ortiz
+# Updated: 04.19.24
 
 # Define variables and import modules
-brave = 'C:\Program Files\BraveSoftware\Brave-Browser\Application\\brave.exe'
-siteList = ["torrentleech.org", "iptorrents.com", "filelist.io", "cinemaZ.to", "avistaZ.to", "exoticaZ.to", "animetorrents.me", "myanonamouse.net", "audionews.org"]
+brave = \
+    'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe'
+siteList = [
+    'torrentleech.org',
+    'iptorrents.com',
+    'filelist.io',
+    'cinemaZ.to',
+    'avistaZ.to',
+    'exoticaZ.to',
+    'animetorrents.me',
+    'myanonamouse.net',
+    'audionews.org'
+    ]
 counter = 0
-import keyboard, time, os
+import keyboard
+import time
+import os
 
 # Launch browser and wait
 os.startfile(brave)
@@ -21,7 +33,8 @@ while counter < 9:
     time.sleep(2)
     keyboard.press_and_release('f6')
     counter += 1
-    
-# Close browser once done
+
+# Close browser and kill process once done
 if counter == 9:
-    keyboard.press_and_release('ctrl+w')
+    time.sleep(1)
+    os.system('taskkill /f /im brave.exe')
