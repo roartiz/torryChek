@@ -21,7 +21,8 @@ import keyboard
 import time
 import os
 
-# Launch browser and wait
+# Launch Brave after making sure it's closed
+os.system('taskkill /f /im brave.exe')
 os.startfile(brave)
 time.sleep(1)
 
