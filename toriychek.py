@@ -1,6 +1,6 @@
-# Program: toriyChek v1.2
+# Program: toriyChek v1.3
 # Author: Richard Ortiz
-# Updated: 04.19.24
+# Updated: 04.28.24
 
 # Define variables and import modules
 brave = \
@@ -26,16 +26,14 @@ os.system('taskkill /f /im brave.exe')
 os.startfile(brave)
 time.sleep(1)
 
-# While loop to launch websites sequentially
-while counter < 9:
+# While loop to launch websites sequentially, then close browser and kill process once done
+for _ in siteList:
     time.sleep(1)
     keyboard.write(siteList[counter])
     keyboard.press_and_release('enter')
     time.sleep(2)
     keyboard.press_and_release('f6')
     counter += 1
-
-# Close browser and kill process once done
-if counter == 9:
-    time.sleep(1)
-    os.system('taskkill /f /im brave.exe')
+    if counter == 9:
+        time.sleep(1)
+        os.system('taskkill /f /im brave.exe')
