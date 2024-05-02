@@ -1,20 +1,20 @@
-# Program: toriyChek v1.31
+# Program: toriyChek v1.32
 # Author: Richard Ortiz
-# Updated: 04.28.24
+# Updated: 05.02.24
 
 # Define variables and import modules
 brave = \
     'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe'
 siteList = [
-    'torlami',
-    'iptom',
-    'filliso',
-    'cimaZ',
-    'astaZ',
-    'eicaZ',
-    'aniimetos',
-    'amommamouse',
-    'dionews'
+    'torrentleech.org',
+    'iptorrents.com',
+    'avistaZ.to',
+    'cinemaZ.to',
+    'exoticaZ.to',
+    'animetorrents.me',
+    'myanonamouse.net',
+    'audionews.org',
+    'filelist.io'
     ]
 counter = 0
 import keyboard
@@ -34,12 +34,16 @@ for _ in siteList:
     time.sleep(2)
     keyboard.press_and_release('f6')
     counter += 1
+    time.sleep(1)
     if counter == 9:
-        time.sleep(1)
         os.system('taskkill /f /im brave.exe')
  
+ 
+ 
+ 
+ 
 """
-# backup siteList = [
+backup siteList = [
     'torrentleech.org',
     'iptorrents.com',
     'filelist.io',
@@ -50,7 +54,7 @@ for _ in siteList:
     'myanonamouse.net',
     'audionews.org'
     ]
-# backup fake siteList = [
+fake siteList = [
     'torlami',
     'iptom',
     'fileliso',
