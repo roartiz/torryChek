@@ -29,7 +29,7 @@ os.startfile(brave)
 time.sleep(1)
 
 
-# While loop to launch websites sequentially, then close browser and kill process once dones
+# For loop to launch websites sequentially, then close browser and kill process once done
 for _ in siteList:
     time.sleep(1)
     keyboard.write(siteList[counter])
