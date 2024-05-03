@@ -1,8 +1,12 @@
-# Program: toriyChek v1.32
+# Program: toriyChek v1.33
 # Author: Richard Ortiz
-# Updated: 05.02.24
+# Updated: 05.03.24
 
 # Define variables and import modules
+import keyboard
+import time
+import os
+
 brave = \
     'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe'
 siteList = [
@@ -17,21 +21,20 @@ siteList = [
     'filelist.io'
     ]
 counter = 0
-import keyboard
-import time
-import os
+
 
 # Launch Brave after making sure it's closed
 os.system('taskkill /f /im brave.exe')
 os.startfile(brave)
 time.sleep(1)
 
-# While loop to launch websites sequentially, then close browser and kill process once done (DISABLED SEND URL for test)
+
+# While loop to launch websites sequentially, then close browser and kill process once dones
 for _ in siteList:
     time.sleep(1)
     keyboard.write(siteList[counter])
     keyboard.press_and_release('enter')
-    time.sleep(2)
+    time.sleep(3)
     keyboard.press_and_release('f6')
     counter += 1
     time.sleep(1)
