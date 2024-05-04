@@ -1,7 +1,7 @@
 """
-Program: toriyChek v1.33
+Program: toriyChek v1.34
 Author: Richard Ortiz
-Updated: 05.03.24
+Updated: 05.04.24
 """
 
 # Define variables and import modules
@@ -15,12 +15,12 @@ siteList = [
     'torrentleech.org',
     'iptorrents.com',
     'avistaZ.to',
-    'cinemaZ.to',
     'exoticaZ.to',
     'animetorrents.me',
     'myanonamouse.net',
     'audionews.org',
     'filelist.io'
+    'cinemaZ.to'
     ]
 counter = 0
 
@@ -39,6 +39,7 @@ for _ in siteList:
     counter += 1
     time.sleep(1)
     if counter == 9:
+        time.sleep(2)
         os.system('taskkill /f /im brave.exe')
  
  
@@ -47,12 +48,12 @@ backup siteList = [
     'torrentleech.org',
     'iptorrents.com',
     'filelist.io',
-    'cinemaZ.to',
     'avistaZ.to',
     'exoticaZ.to',
     'animetorrents.me',
     'myanonamouse.net',
     'audionews.org'
+    'cinemaZ.to'
     ]
 fake siteList = [
     'torlami',
