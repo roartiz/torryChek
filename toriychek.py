@@ -1,5 +1,5 @@
 """
-Program: toriyChek v1.3.5
+Program: toriyChek v1.4.0
 Author: Richard Ortiz
 Updated: 05.25.24
 """
@@ -7,69 +7,57 @@ Updated: 05.25.24
 # Define variables and import modules
 import keyboard
 import time
-import os
 import ctypes
 import datetime
+import subprocess
 
-
-brave = \
+bravePath = \
     'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe'
-siteList = [
-    'torrentleech.org',
-    'iptorrents.com',
-    'filelist.io',
-    'cinemaZ.to',
-    'avistaZ.to',
-    'exoticaZ.to',
-    'animetorrents.me',
-    'myanonamouse.net',
-    'audionews.org'
-    ]
-counter = 0
-now = datetime.datetime.now()
+text_file = open("siteList.txt", "r")
+siteList = [line.strip() for line in text_file.readlines()]
+text_file.close()
 
-# Launch Brave after making sure it's closed
-os.system('taskkill /f /im brave.exe')
-os.startfile(brave)
-time.sleep(1)
 
-# For loop to launch sites sequentially, close browser and kill process, then display confirmation pop-up
-for _ in siteList:
-    time.sleep(0.5)
-    keyboard.write(siteList[counter])
-    keyboard.press_and_release('enter')
-    time.sleep(0.5)
-    keyboard.press_and_release('ctrl+t')
-    counter += 1
-    time.sleep(0.5)
-    if counter == 9:
-        time.sleep(3)
-        os.system('taskkill /f /im brave.exe')
-        ctypes.windll.user32.MessageBoxW(0, "Checks have been completed at " + now.strftime("%H:%M") + "!", "Success", 0)
- 
- 
-"""
-backup siteList = [
-    'torrentleech.org',
-    'iptorrents.com',
-    'filelist.io',
-    'cinemaZ.to',
-    'avistaZ.to',
-    'exoticaZ.to',
-    'animetorrents.me',
-    'myanonamouse.net',
-    'audionews.org'
-    ]
+def closeBrave():
+    # Kill Brave browser process
+    try:
+        subprocess.run(['taskkill', '/f', '/im', 'brave.exe'], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Brave is closed!")
+        
+        
+def openBrave():
+    # Launch Brave browser
+    try:
+        subprocess.Popen(bravePath)
+        time.sleep(1)
+    except Exception as e:
+        print(f"Failed to open Brave: {e}")
+
+
+def openSites():
+    # For loop to launch each site in a new tab, then let them all load
+    for site in siteList:
+        keyboard.write(site)
+        keyboard.press_and_release('enter')
+        time.sleep(0.1)
+        keyboard.press_and_release('ctrl+t')
+        time.sleep(0.1)
+    time.sleep(3)
     
-fake siteList = [
-    'torlami',
-    'iptom',
-    'fileliso',
-    'cinemaZ',
-    'avistaZ',
-    'exoticaZ',
-    'animetos',
-    'amouse',
-    'dionews'
-    ]
-"""
+
+def main():
+    # Main function to control the process
+    closeBrave()
+    openBrave()
+    openSites()
+    closeBrave()
+
+    # Display confirmation message
+    now = datetime.datetime.now()
+    completion_time = now.strftime("%H:%M")
+    ctypes.windll.user32.MessageBoxW(0, f"Checks have been completed at {completion_time}!", "Success", 0)
+    
+    
+if __name__ == "__main__":
+    main()
