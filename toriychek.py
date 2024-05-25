@@ -45,7 +45,7 @@ for _ in siteList:
     if counter == 9:
         time.sleep(3)
         os.system('taskkill /f /im brave.exe')
-        ctypes.windll.user32.MessageBoxW(0, "Logins have been completed at " + now.strftime("%H:%M") + "!", "Success", 0)
+        ctypes.windll.user32.MessageBoxW(0, "Checks have been completed at " + now.strftime("%H:%M") + "!", "Success", 0)
  
  
 """
