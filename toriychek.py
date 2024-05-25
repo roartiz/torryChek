@@ -1,7 +1,7 @@
 """
-Program: toriyChek v1.34
+Program: toriyChek v1.35
 Author: Richard Ortiz
-Updated: 05.09.24
+Updated: 05.25.24
 """
 
 # Define variables and import modules
@@ -35,16 +35,17 @@ time.sleep(1)
 
 # For loop to launch sites sequentially, close browser and kill process, then display confirmation pop-up
 for _ in siteList:
-    time.sleep(1)
+    time.sleep(0.5)
     keyboard.write(siteList[counter])
     keyboard.press_and_release('enter')
-    time.sleep(3)
-    keyboard.press_and_release('f6')
+    time.sleep(0.5)
+    keyboard.press_and_release('ctrl+t')
     counter += 1
-    time.sleep(1)
+    time.sleep(0.5)
     if counter == 9:
+        time.sleep(3)
         os.system('taskkill /f /im brave.exe')
-        ctypes.windll.user32.MessageBoxW(0, "Authentication has been completed at " + now.strftime("%H:%M") + "!", "Success", 0)
+        ctypes.windll.user32.MessageBoxW(0, "Logins have been completed at " + now.strftime("%H:%M") + "!", "Success", 0)
  
  
 """
