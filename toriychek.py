@@ -1,5 +1,5 @@
 """
-Program: toriyChek v1.35
+Program: toriyChek v1.3.5
 Author: Richard Ortiz
 Updated: 05.25.24
 """
