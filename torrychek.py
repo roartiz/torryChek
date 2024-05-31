@@ -1,7 +1,7 @@
 """
-Program: torryChek v1.4.0
+Program: torryChek v1.4.1
 Author: Richard Ortiz
-Updated: 05.25.24
+Updated: 05.31.24
 """
 
 # Define variables and import modules
@@ -51,6 +51,7 @@ def main():
     closeBrave()
     openBrave()
     openSites()
+    time.sleep(5)
     closeBrave()
 
     # Display confirmation message
