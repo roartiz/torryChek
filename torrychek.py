@@ -36,7 +36,7 @@ def openBrave():
 
 
 def openSites():
-    # For loop to launch each site in a new tab, then let them all load
+    # Launch each site, then let them all load
     for site in siteList:
         keyboard.write(site)
         keyboard.press_and_release('enter')
@@ -63,3 +63,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
