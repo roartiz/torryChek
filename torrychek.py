@@ -1,6 +1,6 @@
 """
 Program: torryChek v1.4.1
-Author: Richard Ortiz
+Author: roartiz
 Updated: 05.31.24
 """
 
@@ -61,4 +61,5 @@ def main():
     
     
 if __name__ == "__main__":
+
     main()
